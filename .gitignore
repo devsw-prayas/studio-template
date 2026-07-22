@@ -1,0 +1,20 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.listing
+_minted*/
+
+# Compiled output at the repo root (build artifact, regenerate locally)
+/main.pdf
+
+# ...but keep the rendered example PDF so the output is visible without compiling
+!/example/main.pdf
