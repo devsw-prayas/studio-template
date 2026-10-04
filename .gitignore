@@ -18,3 +18,5 @@ _minted*/
 
 # ...but keep the rendered example PDF so the output is visible without compiling
 !/example/main.pdf
+*.data.minted
+*.synctex(busy)

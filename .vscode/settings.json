@@ -1,0 +1,43 @@
+{
+  "files.associations": {
+    "*.inc": "latex",
+    "*.cls": "latex"
+  },
+
+  // LaTeX Workshop: xelatex -shell-escape (fontspec + minted) with a bibtex pass.
+  "latex-workshop.latex.tools": [
+    {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": ["-shell-escape", "-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%"]
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": ["%DOCFILE%"]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "xelatex -> bibtex -> xelatex x2",
+      "tools": ["xelatex", "bibtex", "xelatex", "xelatex"]
+    },
+    {
+      "name": "xelatex (quick)",
+      "tools": ["xelatex"]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.rootFile.useSubFile": false,
+  "latex-workshop.latex.search.rootFiles.include": ["main.tex"],
+
+  // Clean build output after each build; keep the PDF.
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux", "*.bbl", "*.blg", "*.log", "*.out", "*.toc", "*.listing",
+    "*.fls", "*.fdb_latexmk", "*.data.minted", "_minted*"
+  ],
+  "latex-workshop.latex.clean.subfolder.enabled": true,
+
+  "latex-workshop.view.pdf.viewer": "tab"
+}

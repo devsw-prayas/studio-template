@@ -134,7 +134,7 @@ denoising.
 This section exercises the table style, figure/caption support, and
 \texttt{natbib} citations together.
 
-\begin{table}[H]
+\begin{table}[t]
   \centering
   \caption{Frame time (ms) at 1080p across denoiser configurations.}
   \label{tab:bench}
@@ -149,7 +149,7 @@ This section exercises the table style, figure/caption support, and
   \end{tabular}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[t]
   \centering
   \includegraphics[width=0.55\textwidth]{convergence_plot.png}
   \caption{Estimator variance decreases with sample count $N$, consistent
@@ -161,7 +161,6 @@ The reparameterization machinery used throughout this kind of derivation
 follows \citep{loubet2019reparam}; gradient estimator correctness follows
 the taxonomy of \citep{zeltner2021estimators}.
 
-\clearpage
 \section{Environment gallery}
 \label{sec:gallery}
 
@@ -171,17 +170,17 @@ something works.
 
 \begin{definition}{Gallery: Definition}{gal-def}
 \texttt{\textbackslash begin\{definition\}\{Name\}\{label\} ... \textbackslash end\{definition\}}
---- formal definitions, boxed, teal frame.
+--- upright body text.
 \end{definition}
 
 \begin{theorem}{Gallery: Theorem}{gal-thm}
 \texttt{\textbackslash begin\{theorem\}\{Name\}\{label\} ... \textbackslash end\{theorem\}}
---- proven results, boxed, ink frame.
+--- italic body; all theorem-like environments share one section-scoped counter.
 \end{theorem}
 
 \begin{lemma}{Gallery: Lemma}{gal-lem}
 \texttt{\textbackslash begin\{lemma\}\{Name\}\{label\} ... \textbackslash end\{lemma\}}
---- supporting results, boxed, lighter ink frame.
+--- supporting results.
 \end{lemma}
 
 \begin{corollary}{Gallery: Corollary}{gal-cor}
@@ -196,22 +195,22 @@ something works.
 
 \begin{conjecture}{Gallery: Conjecture}{gal-conj}
 \texttt{\textbackslash begin\{conjecture\}\{Name\}\{label\} ... \textbackslash end\{conjecture\}}
---- numerically-confirmed-only, not yet closed-form. Teal frame, matches Definition.
+--- numerically-confirmed-only, not yet closed-form.
 \end{conjecture}
 
 \begin{remark}[Gallery: Remark]
 \texttt{\textbackslash begin\{remark\}[optional name] ... \textbackslash end\{remark\}}
---- unboxed, italic, for open questions and caveats.
+--- italic label, upright body; for open questions and caveats.
 \end{remark}
 
 \begin{example}{Gallery: Example}{gal-ex}
 \texttt{\textbackslash begin\{example\}\{Name\}\{label\} ... \textbackslash end\{example\}}
---- a worked numeric or concrete illustration. Gray frame.
+--- a worked numeric or concrete illustration.
 \end{example}
 
 \begin{implnote}[Gallery: Implementation Note]
 \texttt{\textbackslash begin\{implnote\}[optional label] ... \textbackslash end\{implnote\}}
---- engineering/code notes, left-bar callout, not a math claim.
+--- run-in paragraph for engineering/code notes, not a math claim.
 \end{implnote}
 
 \noindent\texttt{proof}: standard environment, plain style, ends with
@@ -222,23 +221,25 @@ $\blacksquare$. Use for any theorem/lemma/proposition/corollary.
 \texttt{\textbackslash Comment*[r]\{...\}}.
 
 \noindent Code: \texttt{cppcode}, \texttt{pycode}, and generic
-\texttt{swcode[title=...]\{language\}} --- all via \texttt{minted}, ink/teal/ink
-title bars respectively.
+\texttt{swcode[title=...]\{language\}} --- all via \texttt{minted}, between thin rules with a bold title.
 
-\noindent Draft-only tags (for scratch docs, not finalized preprints):
-\texttt{proventag}, \texttt{numconfirmedtag}, \texttt{openitemtag} --- no
-arguments, just wrap content.
+\begin{openitemtag}
+\noindent Proof-status tags: \texttt{proventag}, \texttt{numconfirmedtag},
+\texttt{openitemtag} --- wrap a paragraph to put a small-caps status in the
+margin (like this one). \texttt{\textbackslash tool\{...\}} names a technique
+inline \tool{e.g.\ this}.
+\end{openitemtag}
 
 \noindent Tables: \texttt{\textbackslash swtablehead} after \texttt{\textbackslash toprule}
 for a bold header row; \texttt{\textbackslash swtablealt} before a long
 \texttt{tabular} for alternating row tints.
 
-\noindent Figures: standard \texttt{graphicx}/\texttt{caption}/\texttt{subcaption}, styled
-captions (bold ink label, gray text).
+\noindent Figures: standard \texttt{graphicx}/\texttt{caption}/\texttt{subcaption}, small captions
+with a bold sans label.
 
 \noindent Citations: \texttt{\textbackslash cite\{key\}} / \texttt{\textbackslash citep\{key\}}
-(default style: \texttt{alpha}, author-initial keys like \texttt{[ZSGJ21]} ---
-avoid \texttt{\textbackslash citet\{\}} in this mode) against
+for (Author et al.\ 2021), \texttt{\textbackslash citet\{key\}} for
+Author et al.\ (2021) --- author-year via \texttt{plainnat} against
 \texttt{\textbackslash swbibliography\{refs\}}.
 
 \noindent Cross-references: \texttt{\textbackslash cref\{label\}} / \texttt{\textbackslash Cref\{label\}}
